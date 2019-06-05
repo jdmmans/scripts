@@ -63,7 +63,7 @@ p1.3 # actually print the damned thing
 ## Rain vs temperature
 
 ```{r rain vs temp}
-# basic scatterplot 
+# basic scatterplot + regression line equation
 library(Hmisc)
 library(ggplot2)
 library(gridExtra)
@@ -72,12 +72,11 @@ m <- lm(met$Rainfall ~ met$Temperature)
 a <- signif(coef(m)[1], digits = 2)
 b <- signif(coef(m)[2], digits = 2)
 textlab <- paste("y = ",b,"x + ",a, sep="")
-print(textlab)
 p1 <- ggplot(met, aes(x=Rainfall, y=Temperature)) + geom_point(color="red") + geom_smooth(method = "lm", se = TRUE)
-r2 <- p1 + annotate("text", x = 0, y = 0, label = textlab, color="black", size = 5, parse=TRUE)# making it a scatterplot
+r2 <- p1 + annotate("text", x = 2300, y = 20, label = textlab, color="black", size = 5, parse=FALSE)# making it a scatterplot
 File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/RainTemp.png" #don't override stuff, need to print off 
 if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
-p1 # actually print the damned thing
+r2 # actually print the damned thing
 ```
 
 ## Tanglegram of accessory and core genome
