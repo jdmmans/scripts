@@ -63,7 +63,7 @@ p1.3 # actually print the damned thing
 ## Rain vs temperature
 
 ```{r rain vs temp}
-# basic scatterplot + regression line equation
+# basic scatterplot 
 library(Hmisc)
 library(ggplot2)
 library(gridExtra)
@@ -106,55 +106,57 @@ dendextend::tanglegram(dndlist, margin_inner = 8,  sort = TRUE)
 ## Phylogeny and metadata
 
 ```{r new attempt at phylo + meta, fig.height = 7, fig.width = 15, echo=FALSE}
+library(phylogram)
+library(ape)
+library(phytools)
 library(gplots)
 library(dendextend)
+library(gplots)
+library(dendextend)
+library(rlist)
+coretree<- "/Users/jmmans/Desktop/coretree"
 cPhylo1 <- read.dendrogram(coretree)
 cd<- read.tree(coretree)
 cord<- cd[["tip.label"]]
 ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
-ab <-  arrange(ab, factor(Isolate, levels = cord))
+ab <- arrange(ab, factor(Isolate, levels = cord))
 
-European <- ifelse(ab$W.European, "white", "black")
-N.American <- ifelse(ab$N.American, "white", "black")
-Other <- ifelse(ab$Other, "white", "black")
-Symptomatic <- ifelse(ab$Symptomatic, "white", "black")
-Contamination <- ifelse(ab$Contamination, "white", "black")
-Emm.Subtype <- ifelse(ab$Other.EMM, "white", "black")
-Invasive <-  ifelse(ab$Invasive, "white", "black")
-
-# The FALSE above makes sure we get the clusters in the order of the
-# dendrogram, and not in that of the original data. It is like:
-# cutree(dend15, k = 3)[order.dendrogram(dend15)]
-the_bars <- cbind(European, N.American, Other, Symptomatic, Contamination, Emm.Subtype, Invasive)
-names <- rbind("European", "N.American", "Other", "Symptomatic", "Contamination", "Emm.Subtype", "Invasive")
+# remove isolate names, list and extract factors for the metadata names, change all absent to black, and all present to white  
+ab<- subset(ab, select= -c(Isolate))
+c<- names(ab)
+ab[ab == "0"] <- "black" 
+ab[ab == "1"] <- "white"
+# metadata + phylogeny being plotted together
 par(mar = c(12,8,1,1))
 plot(cPhylo1)
-colored_bars(colors = the_bars, dend = cPhylo1, rowLabels = names)
+colored_bars(ab, dend = cPhylo1, rowLabels = c)
 ```
 
 ```{r accessory phylo + meta , fig.height = 7, fig.width = 15, echo=FALSE}
+library(phylogram)
+library(ape)
+library(phytools)
 library(gplots)
 library(dendextend)
+library(gplots)
+library(dendextend)
+library(rlist)
+accessorytree<- "/Users/jmmans/Desktop/accessorytree"
 cPhylo1 <- read.dendrogram(accessorytree)
 cd<- read.tree(accessorytree)
 cord<- cd[["tip.label"]]
 ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
 ab <-  arrange(ab, factor(Isolate, levels = cord))
 
-European <- ifelse(ab$W.European, "white", "black")
-N.American <- ifelse(ab$N.American, "white", "black")
-Other <- ifelse(ab$Other, "white", "black")
-Symptomatic <- ifelse(ab$Symptomatic, "white", "black")
-Contamination <- ifelse(ab$Contamination, "white", "black")
-Emm.Subtype <- ifelse(ab$Other.EMM, "white", "black")
-Invasive <-  ifelse(ab$Invasive, "white", "black")
-
-# The FALSE above makes sure we get the clusters in the order of the
-# dendrogram, and not in that of the original data. It is like:
-# cutree(dend15, k = 3)[order.dendrogram(dend15)]
-the_bars <- cbind(European, N.American, Other, Symptomatic, Contamination, Emm.Subtype, Invasive)
-names <- rbind("European", "N.American", "Other", "Symptomatic", "Contamination", "Emm.Subtype", "Invasive")
+# remove isolate names, list and extract factors for the metadata names, change all absent to black, and all present to white  
+ab<- subset(ab, select= -c(Isolate))
+c<- names(ab)
+ab[ab == "0"] <- "black" 
+ab[ab == "1"] <- "white"
+# metadata + phylogeny being plotted together
 par(mar = c(12,8,1,1))
 plot(cPhylo1)
-colored_bars(colors = the_bars, dend = cPhylo1, rowLabels = names)
+colored_bars(ab, dend = cPhylo1, rowLabels = c)
 ```
+
+rea
