@@ -36,7 +36,7 @@ fi
 # module needed to access web
 module load web_proxy/latest
 
-# delay - a decent delay
+# delay - ofset to ensure that multiple downloads of the same file doesn't occur, again
 wt=$((${SLURM_ARRAY_TASK_ID} * 15))
 sleep $wt;
 
