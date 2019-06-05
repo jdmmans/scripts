@@ -158,5 +158,3 @@ par(mar = c(12,8,1,1))
 plot(cPhylo1)
 colored_bars(ab, dend = cPhylo1, rowLabels = c)
 ```
-
-rea
