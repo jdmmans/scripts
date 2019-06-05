@@ -1,0 +1,161 @@
+---
+title: "Preliminary data analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE) 
+require(ggplot2)
+require(RColorBrewer)
+require(tidyverse)
+library(RColorBrewer)
+library(tidyverse)
+library(ggplot2)
+library(ggtree)
+met <- read.csv("/Users/jmmans/Desktop/emm75_meta/emm75in/emm75_meta_analysistime.csv", header = TRUE, row.names = 1) #set meta data to be readily accessed
+sovcol<- geom_bar(col="#FFFF00", fill="#a50f15") ## glorious proteriat revolution colour scheme 
+```
+
+## No. of isolates from different countries
+
+```{r country} 
+p1 <-ggplot(data=met, aes(Country)) #plot data acquisition 
+p1.1<- p1 + sovcol #add Soviet colours from setup
+p1.2<- p1.1 + geom_text(stat='count', aes(label=..count..), vjust=-0.45) # add count just above graph and print off result
+File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/Country.png" #don't override stuff, need to print off 
+if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
+p1.2 # actually print the damned thing
+```
+
+## No. of isolates from different continents
+
+```{r continent} 
+p2 <-ggplot(data=met, aes(Continent)) #getting data for plot
+p2.1<- p2 + sovcol #add Soviet colours from setup
+p2.2<- p2.1 + geom_text(stat='count', aes(label=..count..), vjust=-0.45) # add count just above graph and print off result
+File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/Continent.png" #don't override stuff, need to print off 
+if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
+p2.2
+``` 
+
+## No. of clinical manifestations in data
+
+```{r disease}
+p3 <- ggplot(data=met, aes(Disease)) #same as country names
+p3.1<- p3 + sovcol #add Soviet colours from setup
+p3.2<- p3.1 + geom_text(stat='count', aes(label=..count..), vjust=-0.45) # add count just above graph and print off result
+File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/Disease.png" #don't override stuff, need to print off 
+if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
+p3.2
+```
+
+## No. of different tissue sources
+
+```{r tissue} 
+p1 <-ggplot(data=met, aes(x=tissue)) #plot data acquisition 
+p1.2<- p1 + sovcol #add Soviet colours from setup
+p1.3<- p1.2 + geom_text(stat='count', aes(label=..count..), vjust=-0.45) # add count just above graph and print off result
+File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/Tissue_source.png" #don't override stuff, need to print off 
+if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
+p1.3 # actually print the damned thing
+```
+
+## Rain vs temperature
+
+```{r rain vs temp}
+# basic scatterplot 
+library(Hmisc)
+library(ggplot2)
+library(gridExtra)
+met <- read.csv("/Users/jmmans/Desktop/emm75_meta/emm75in/emm75_meta_analysistime.csv", header = TRUE, row.names = 1) #set meta data to be readily accessed
+m <- lm(met$Rainfall ~ met$Temperature)
+a <- signif(coef(m)[1], digits = 2)
+b <- signif(coef(m)[2], digits = 2)
+textlab <- paste("y = ",b,"x + ",a, sep="")
+print(textlab)
+p1 <- ggplot(met, aes(x=Rainfall, y=Temperature)) + geom_point(color="red") + geom_smooth(method = "lm", se = TRUE)
+r2 <- p1 + annotate("text", x = 0, y = 0, label = textlab, color="black", size = 5, parse=TRUE)# making it a scatterplot
+File<- "/Users/jmmans/Desktop/emm75_meta/emm75out/RainTemp.png" #don't override stuff, need to print off 
+if (!file.exists(File)) suppressMessages(ggsave(File)) # create file if absent
+p1 # actually print the damned thing
+```
+
+## Tanglegram of accessory and core genome
+
+```{r phylogeny, fig.height = 7, fig.width = 15, echo = FALSE, message = FALSE}
+# core phylogeny tree
+library(phylogram)
+library(ape)
+library(phytools)
+library(gplots)
+library(dendextend)
+coretree<- "/Users/jmmans/Desktop/coretree"
+accessorytree<- "/Users/jmmans/Desktop/accessorytree"
+phy<- read.dendrogram(coretree)
+plot(phy)
+
+# tanglegram of core VS accessory genome
+dnd1 <- read.dendrogram(coretree)
+dnd2 <- read.dendrogram(accessorytree)
+dnd1<- as.cladogram(dnd1)
+dnd2<- as.cladogram(dnd2)
+## plot the tanglegram
+dndlist <- dendextend::dendlist(dnd1, dnd2)
+dendextend::tanglegram(dndlist, margin_inner = 8,  sort = TRUE)
+```
+
+## Phylogeny and metadata
+
+```{r new attempt at phylo + meta, fig.height = 7, fig.width = 15, echo=FALSE}
+library(gplots)
+library(dendextend)
+cPhylo1 <- read.dendrogram(coretree)
+cd<- read.tree(coretree)
+cord<- cd[["tip.label"]]
+ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
+ab <-  arrange(ab, factor(Isolate, levels = cord))
+
+European <- ifelse(ab$W.European, "white", "black")
+N.American <- ifelse(ab$N.American, "white", "black")
+Other <- ifelse(ab$Other, "white", "black")
+Symptomatic <- ifelse(ab$Symptomatic, "white", "black")
+Contamination <- ifelse(ab$Contamination, "white", "black")
+Emm.Subtype <- ifelse(ab$Other.EMM, "white", "black")
+Invasive <-  ifelse(ab$Invasive, "white", "black")
+
+# The FALSE above makes sure we get the clusters in the order of the
+# dendrogram, and not in that of the original data. It is like:
+# cutree(dend15, k = 3)[order.dendrogram(dend15)]
+the_bars <- cbind(European, N.American, Other, Symptomatic, Contamination, Emm.Subtype, Invasive)
+names <- rbind("European", "N.American", "Other", "Symptomatic", "Contamination", "Emm.Subtype", "Invasive")
+par(mar = c(12,8,1,1))
+plot(cPhylo1)
+colored_bars(colors = the_bars, dend = cPhylo1, rowLabels = names)
+```
+
+```{r accessory phylo + meta , fig.height = 7, fig.width = 15, echo=FALSE}
+library(gplots)
+library(dendextend)
+cPhylo1 <- read.dendrogram(accessorytree)
+cd<- read.tree(accessorytree)
+cord<- cd[["tip.label"]]
+ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
+ab <-  arrange(ab, factor(Isolate, levels = cord))
+
+European <- ifelse(ab$W.European, "white", "black")
+N.American <- ifelse(ab$N.American, "white", "black")
+Other <- ifelse(ab$Other, "white", "black")
+Symptomatic <- ifelse(ab$Symptomatic, "white", "black")
+Contamination <- ifelse(ab$Contamination, "white", "black")
+Emm.Subtype <- ifelse(ab$Other.EMM, "white", "black")
+Invasive <-  ifelse(ab$Invasive, "white", "black")
+
+# The FALSE above makes sure we get the clusters in the order of the
+# dendrogram, and not in that of the original data. It is like:
+# cutree(dend15, k = 3)[order.dendrogram(dend15)]
+the_bars <- cbind(European, N.American, Other, Symptomatic, Contamination, Emm.Subtype, Invasive)
+names <- rbind("European", "N.American", "Other", "Symptomatic", "Contamination", "Emm.Subtype", "Invasive")
+par(mar = c(12,8,1,1))
+plot(cPhylo1)
+colored_bars(colors = the_bars, dend = cPhylo1, rowLabels = names)
+```
