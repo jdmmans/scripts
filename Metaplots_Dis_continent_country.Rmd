@@ -9,7 +9,6 @@ require(ggplot2)
 require(RColorBrewer)
 require(tidyverse)
 library(RColorBrewer)
-library(tidyverse)
 library(ggplot2)
 library(ggtree)
 met <- read.csv("/Users/jmmans/Desktop/emm75_meta/emm75in/emm75_meta_analysistime.csv", header = TRUE, row.names = 1) #set meta data to be readily accessed
@@ -85,76 +84,92 @@ r2 # actually print the damned thing
 # core phylogeny tree
 library(phylogram)
 library(ape)
-library(phytools)
 library(gplots)
 library(dendextend)
 coretree<- "/Users/jmmans/Desktop/coretree"
 accessorytree<- "/Users/jmmans/Desktop/accessorytree"
-phy<- read.dendrogram(coretree)
-plot(phy)
 
 # tanglegram of core VS accessory genome
 dnd1 <- read.dendrogram(coretree)
 dnd2 <- read.dendrogram(accessorytree)
-dnd1<- as.cladogram(dnd1)
-dnd2<- as.cladogram(dnd2)
 ## plot the tanglegram
 dndlist <- dendextend::dendlist(dnd1, dnd2)
-dendextend::tanglegram(dndlist, margin_inner = 8,  sort = TRUE)
+dendextend::tanglegram(dndlist, margin_inner = 8,  sort = TRUE,  common_subtrees_color_lines = TRUE, common_subtrees_color_branches = T)
 ```
+## Virulence factors and metadata for Core and Accessory phylogeny's
 
-## Phylogeny and metadata
-
-```{r new attempt at phylo + meta, fig.height = 7, fig.width = 15, echo=FALSE}
+```{R virulence + Meta for Core and Accessory , fig.height = 7, fig.width = 15,}
 library(phylogram)
 library(ape)
-library(phytools)
-library(gplots)
 library(dendextend)
-library(gplots)
-library(dendextend)
-library(rlist)
+library(dplyr)
+# loading in phylo tress + read leafs
 coretree<- "/Users/jmmans/Desktop/coretree"
-cPhylo1 <- read.dendrogram(coretree)
-cd<- read.tree(coretree)
-cord<- cd[["tip.label"]]
-ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
-ab <- arrange(ab, factor(Isolate, levels = cord))
-
-# remove isolate names, list and extract factors for the metadata names, change all absent to black, and all present to white  
-ab<- subset(ab, select= -c(Isolate))
-c<- names(ab)
-ab[ab == "0"] <- "black" 
-ab[ab == "1"] <- "white"
-# metadata + phylogeny being plotted together
-par(mar = c(12,8,1,1))
-plot(cPhylo1)
-colored_bars(ab, dend = cPhylo1, rowLabels = c)
-```
-
-```{r accessory phylo + meta , fig.height = 7, fig.width = 15, echo=FALSE}
-library(phylogram)
-library(ape)
-library(phytools)
-library(gplots)
-library(dendextend)
-library(gplots)
-library(dendextend)
-library(rlist)
 accessorytree<- "/Users/jmmans/Desktop/accessorytree"
-cPhylo1 <- read.dendrogram(accessorytree)
-cd<- read.tree(accessorytree)
-cord<- cd[["tip.label"]]
-ab <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
-ab <-  arrange(ab, factor(Isolate, levels = cord))
+cPhylo1 <- read.dendrogram(file = coretree)
+cPhylo2 <- read.dendrogram(accessorytree)
+cd1<- read.tree(coretree)
+cd2<- read.tree(accessorytree)
+cord1<- cd1[["tip.label"]]
+cord2<- cd2[["tip.label"]]
 
-# remove isolate names, list and extract factors for the metadata names, change all absent to black, and all present to white  
-ab<- subset(ab, select= -c(Isolate))
-c<- names(ab)
-ab[ab == "0"] <- "black" 
-ab[ab == "1"] <- "white"
-# metadata + phylogeny being plotted together
-par(mar = c(12,8,1,1))
+# load in data then arrange
+ab0 <- read.csv("/Users/jmmans/Desktop/Virulence.csv", header = TRUE)
+ab1 <- arrange(ab0, factor(Isolate, levels = cord1))
+ME <- read.csv("/Users/jmmans/Desktop/emm75_me2_presence_asbence.csv", header = TRUE)
+ME <- arrange(ME, factor(Isolate, levels = cord1))
+Iso<- subset(ME, select= c(Isolate))
+abE<- subset(ME, select= c(Invasive, W.European, N.American, Other_Location))
+
+ab1<- cbind(ab1,abE)
+ab1<- subset(ab1, select= -c(Isolate, NUM_FOUND))
+ab1[ab1 == "."] <- "black" 
+ab1[ab1 == "0"] <- "black" 
+ab1[ab1 < 99.99 & ab1 >95 ] <- "grey"
+ab1[ab1 > 5 & ab1 <95 ] <- "black"
+ab1[ab1 == "100.00;100.00"] <- "white"
+ab1[ab1 == "99.41;95.86"] <- "white"
+ab1[ab1 == "100"] <- "white"
+ab1[ab1 == "1"]  <- "white"
+ab1<- cbind(ab1, Iso)
+ab2 <- arrange(ab1, factor(Isolate, levels = cord2))
+
+# Divide into 3 portions, recolour from black and white two of them
+crr <- ab1 %>% dplyr::filter(row_number() %% 3 == 0)
+crr1 <- ab1 %>% dplyr::filter(row_number() %% 3 == 1)
+crr2 <- ab1 %>% dplyr::filter(row_number() %% 3 == 2)
+crr[crr == "black"] <- "black" 
+crr[crr == "white"] <- "red"
+crr1[crr1 == "black"] <- "black" 
+crr1[crr1 == "white"] <- "blue"
+data.frame(crr)
+ab1 <- rbind(crr2,crr1,crr)
+ab1 <- arrange(ab1, factor(Isolate, levels = cord1))
+
+# French and or Russian flag time
+crr <- ab2 %>% dplyr::filter(row_number() %% 3 == 0)
+crr1 <- ab2 %>% dplyr::filter(row_number() %% 3 == 1)
+crr2 <- ab2 %>% dplyr::filter(row_number() %% 3 == 2)
+crr[crr == "black"] <- "black" 
+crr[crr == "white"] <- "red"
+crr1[crr1 == "black"] <- "black" 
+crr1[crr1 == "white"] <- "blue"
+ab2 <- rbind(crr2,crr1,crr)
+ab2 <- arrange(ab2, factor(Isolate, levels = cord2))
+
+# edit data to remove sorting category
+ab1 <- subset(ab1, select= -c(Isolate))
+ab2 <- subset(ab2, select= -c(Isolate))
+c1<- names(ab1)
+c2<- names(ab2)
+
+# virulence + core phylogeny being plotted together
+par(mar = c(25,8,1,1))
 plot(cPhylo1)
-colored_bars(ab, dend = cPhylo1, rowLabels = c)
+colored_bars(ab1, dend = cPhylo1, rowLabels = c1)
+
+# virulence + accessory phylogeny 
+par(mar = c(25,8,1,1))
+plot(cPhylo2)
+colored_bars(ab2, dend = cPhylo2, rowLabels = c2)
 ```
