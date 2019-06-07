@@ -132,7 +132,6 @@ ab1[ab1 == "99.41;95.86"] <- "white"
 ab1[ab1 == "100"] <- "white"
 ab1[ab1 == "1"]  <- "white"
 ab1<- cbind(ab1, Iso)
-ab2 <- arrange(ab1, factor(Isolate, levels = cord2))
 
 # Divide into 3 portions, recolour from black and white two of them
 crr <- ab1 %>% dplyr::filter(row_number() %% 3 == 0)
@@ -142,20 +141,11 @@ crr[crr == "black"] <- "black"
 crr[crr == "white"] <- "red"
 crr1[crr1 == "black"] <- "black" 
 crr1[crr1 == "white"] <- "blue"
-data.frame(crr)
 ab1 <- rbind(crr2,crr1,crr)
 ab1 <- arrange(ab1, factor(Isolate, levels = cord1))
 
-# French and or Russian flag time
-crr <- ab2 %>% dplyr::filter(row_number() %% 3 == 0)
-crr1 <- ab2 %>% dplyr::filter(row_number() %% 3 == 1)
-crr2 <- ab2 %>% dplyr::filter(row_number() %% 3 == 2)
-crr[crr == "black"] <- "black" 
-crr[crr == "white"] <- "red"
-crr1[crr1 == "black"] <- "black" 
-crr1[crr1 == "white"] <- "blue"
-ab2 <- rbind(crr2,crr1,crr)
-ab2 <- arrange(ab2, factor(Isolate, levels = cord2))
+# accessory genome arrangement, strange pattern of having mutliples of the same next to each other but seems to be nothing 
+ab2 <- arrange(ab1, factor(Isolate, levels = cord2))
 
 # edit data to remove sorting category
 ab1 <- subset(ab1, select= -c(Isolate))
