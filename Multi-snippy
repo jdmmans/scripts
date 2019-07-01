@@ -41,6 +41,5 @@ spyo="/data/cephfs/punim0599/Jesse/emm75/snippy/input/EMM75SPyoref.fasta"
 
 # snippy core - github makes it seem like the blend of fa and fna should be fine, otherwise run through coversion software?
 # Need all the damned assembles in a tab separated format i.e isolate1  /path/to/isolate1 that is also one per line
-snippy-multi /data/cephfs/punim0599/Jesse/emm75/M75_jesse/input.tab --ref $spyo --cpus 8 > ./test/runme.sh
-
+snippy-multi /data/cephfs/punim0599/Jesse/emm75/M75_jesse/input.tab --ref $spyo --cpus 8 > ./align.sh
 done
