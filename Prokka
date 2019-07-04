@@ -41,6 +41,7 @@ sleep $wt
 #modules
 module load Prokka/1.13-intel-2016.u3-BioPerl-1.6.924
 module load Java/9.0.4
+module load BLAST+/2.7.1-spartan_intel-2017.u2
 
 # like a for loop but better 
 cd /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa
