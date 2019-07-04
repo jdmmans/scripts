@@ -9,6 +9,9 @@
 # Multithreaded (SMP) job: must run on one node and the cloud partition
 #SBATCH --nodes=1
 
+# array
+#SBATCH --array=1-8
+
 # The name of the job:
 #SBATCH --job-name="Snippy_code"
 
@@ -30,6 +33,10 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
    echo "You need to submit your job to the queuing system with sbatch"
    exit 1
 fi
+
+# delay - a decent delay
+wt=$((${SLURM_ARRAY_TASK_ID} * 15))
+sleep $wt
 
 #modules
 module load Prokka/1.13-intel-2016.u3-BioPerl-1.6.924
