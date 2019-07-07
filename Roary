@@ -32,6 +32,10 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 #modules
+module load GCC/8.2.0
+module load GNU
+module load Perl/5.26.2-intel-2018.u4
+module load BioPerl/1.7.2-intel-2016.u3-Perl-5.26.2
 module load BLAST+/2.7.1-spartan_intel-2017.u2
 module load BEDTools/2.28.0-spartan_intel-2017.u2
 module load CD-HIT/4.6.8-spartan_intel-2017.u2
@@ -41,10 +45,7 @@ module load PRANK/170427-intel-2017.u2
 module load MAFFT/7.397-spartan_intel-2017.u2-with-extensions
 module load FastTree/2.1.10-spartan_intel-2017.u2
 module load Kraken/1.0-spartan_intel-2017.u2-Perl-5.26.0
-module load Perl/5.26.2-intel-2018.u4
-module load BioPerl/1.7.2-intel-2016.u3-Perl-5.26.2
 module load Roary/3.12.0-spartan_intel-2017.u2-Perl-5.26.0
-module load GCC/8.2.0
 
 cd /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka
 ls -R | while read line; do
