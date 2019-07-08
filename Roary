@@ -53,7 +53,8 @@ ls -R | while read line; do
     line=${line:0:-4}
 fi
 
-#hacking in reads to one place since Roary can't
+#hacking in reads to one place since Roary can't move stuff
+# needs prokka output first, otherwise nada
 mkdir /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/ggfs/
 cp /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/${line}/${line}.gff /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/ggfs/
 
