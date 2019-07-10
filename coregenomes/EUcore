@@ -49,4 +49,4 @@ euro="/data/cephfs/punim0599/Jesse/emm75/euro.txt"
 # snippy core
 snippy-core --prefix snpcore --ref $spyo $(cat $euro)
 
-snp-sites -b -c -o phylo.aln snpcore.full.aln
+snp-sites -b -c -o snpcore.aln
