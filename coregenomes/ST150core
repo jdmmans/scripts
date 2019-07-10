@@ -46,6 +46,6 @@ cd  /data/cephfs/punim0599/Jesse/emm75/snpanalysis
 spyo="/data/cephfs/punim0599/Jesse/emm75/Spartan_import/STAB14018.fasta"
 ST150="/data/cephfs/punim0599/Jesse/emm75/150.txt"
 # snippy core
-snippy-core --prefix snpcore --ref $spyo {cat $ST150}
+snippy-core --prefix snpcore --ref $spyo $(cat $ST150)
 
 snp-sites -b -c -o phylo.aln snpcore.full.aln
