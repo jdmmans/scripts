@@ -45,7 +45,8 @@ module load snp-sites/2.4.1-spartan_intel-2017.u2
 cd  /data/cephfs/punim0599/Jesse/emm75/snpanalysis
 spyo="/data/cephfs/punim0599/Jesse/emm75/Spartan_import/STAB14018.fasta"
 euro="/data/cephfs/punim0599/Jesse/emm75/euro.txt"
+
 # snippy core
-snippy-core --prefix snpcore --ref $spyo {cat $euro}
+snippy-core --prefix snpcore --ref $spyo $(cat $euro)
 
 snp-sites -b -c -o phylo.aln snpcore.full.aln
