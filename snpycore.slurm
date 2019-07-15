@@ -40,6 +40,7 @@ module load BEDTools/2.28.0-spartan_intel-2017.u2
 module load SAMtools/1.9-intel-2018.u4
 module load minimap2/2.11-intel-2017.u2
 module load snp-sites/2.4.1-spartan_intel-2017.u2
+module load BioPerl/1.6.924-intel-2016.u3-Perl-5.20.0-bio
 
 # change drive - set reference genome as reference 
 cd  /data/cephfs/punim0599/Jesse/emm75/snpanalysis
