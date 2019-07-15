@@ -41,5 +41,5 @@ echo $spyo
 # snippy core - github makes it seem like the blend of fa and fna should be fine, otherwise run through coversion software?
 # Need all the damned assembles in a tab separated format i.e isolate1  /path/to/isolate1 that is also one per line
 ls | while read line; do
-snippy --outdir /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fasta/${line} --se /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa/{line} --ref $spyo --force --cpus 8
+snippy --outdir /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fasta/${line} --ctgs /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa/{line} --ref $spyo --force --cpus 8
 done
