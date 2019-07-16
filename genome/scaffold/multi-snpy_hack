@@ -34,12 +34,12 @@ fi
 module load Snippy/4.3.6-intel-2017.u2
 
 #  change drive, making test folder for time being, add in reference strain path
-cd /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa/
-spyo="/data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa/ASM413587v1.fa"
+cd /data/cephfs/punim0599/Jesse/emm75/fasta
+spyo="/data/cephfs/punim0599/Jesse/emm75/fasta/ASM413587v1.fa"
 echo $spyo
 
 # snippy core - github makes it seem like the blend of fa and fna should be fine, otherwise run through coversion software?
 # Need all the damned assembles in a tab separated format i.e isolate1  /path/to/isolate1 that is also one per line
 ls | while read line; do
-snippy --outdir /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fasta/${line} --ctgs /data/cephfs/punim0599/Jesse/emm75/M75_jesse/fa/{line} --ref $spyo --force --cpus 8
+snippy --outdir /data/cephfs/punim0599/Jesse/emm75/fasta/${line} --ctgs /data/cephfs/punim0599/Jesse/emm75/fasta/${line} --ref $spyo --cpus 8
 done
