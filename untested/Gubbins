@@ -32,9 +32,11 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 #mods needed
-load module Gubbins/2.3.4-intel-2016.u3-Python-3.5.2
-
+module load Gubbins/2.3.4-intel-2016.u3-Python-3.5.2
+module load RAxML/8.2.8-intel-2016.u3-mt-sse3
 #work
-run_gubbins.py /data/cephfs/punim0599/Jesse/emm75/snippy/output/core.aln
+run_gubbins.py /data/cephfs/punim0599/Jesse/emm75/snpanalysis/ST49core.aln
+
+run_gubbins.py /data/cephfs/punim0599/Jesse/emm75/snpanalysis/ST150core.aln
 
 done
