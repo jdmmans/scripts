@@ -1,0 +1,52 @@
+#!/bin/bash
+# Created by the University of Melbourne job script generator for SLURM
+# Tue Apr 02 2019 10:31:59 GMT+1100 (Australian Eastern Daylight Time)
+
+# Partition for the job:
+#SBATCH --partition=cloud,physical
+
+# Multithreaded (SMP) job: must run on one node and the cloud partition
+#SBATCH --nodes=1
+
+# The name of the job:
+#SBATCH --job-name="Snippy_code"
+
+# The project ID which this job should run under:
+#SBATCH --account="punim0599"
+
+# Maximum number of tasks/CPU cores used by the job:
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+
+# Use this email address:
+#SBATCH --mail-user=jmmans@student.unimelb.edu.au
+
+# The maximum running time of the job in days-hours:mins:sec
+#SBATCH --time=0-0:15:00
+
+# check that the script is launched with sbatch
+if [ "x$SLURM_JOB_ID" == "x" ]; then
+   echo "You need to submit your job to the queuing system with sbatch"
+   exit 1
+fi
+
+# The modules to load:
+module load BioPerl/1.7.2-spartan_intel-2017.u2-Perl-5.26.0
+module load Java/9.0.4
+module load seqtk/1.2-r94-intel-2016.u3
+module load Vt/0.5772-spartan_gcc-6.2.0
+module load Snippy/4.3.6-spartan_intel-2017.u2
+module load BEDTools/2.28.0-spartan_intel-2017.u2
+module load SAMtools/1.9-intel-2018.u4
+module load minimap2/2.11-intel-2017.u2
+module load snp-sites/2.4.1-spartan_intel-2017.u2
+
+# change drive - set reference genome as reference
+cd  /data/cephfs/punim0599/Jesse/emm75/snpanalysis
+spyo="/data/cephfs/punim0599/Jesse/emm75/fasta/ASM413587v1.fa"
+us="/data/cephfs/punim0599/Jesse/emm75/st150.txt"
+# snippy core
+snippy-core --prefix ST49core --ref $spyo /data/cephfs/punim0599/Jesse/emm75/fst/ASM412411v1 /data/cephfs/punim0599/Jesse/emm75/fst/ERR1735106 /data/cephfs/punim0599/Jesse/emm75/fst/ERR1735300 /data/cephfs/punim0599/Jesse/emm75/fst/ERR485807 /data/cephfs/punim0599/Jesse/emm75/fst/ERR485820 /data/cephfs/punim0599/Jesse/emm75/fst/SRR1105928 /data/cephfs/punim0599/Jesse/emm75/fst/SRR1105976 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5853417 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5853418 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5853420 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5853810 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5853875 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5854009 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5854107 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5854173 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5858578 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5858638 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5858672 /data/cephfs/punim0599/Jesse/emm75/fst/SRR5858740 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6834822 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6834865 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6834926 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6834952 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6834999 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835028 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835084 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835087 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835140 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835171 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835313 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835324 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835495 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835543 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835769 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6835780 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6839718 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6839905 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6839932 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6840015 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6840060 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6840603 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6840630 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844601 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844608 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844624 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844671 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844800 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844828 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6844840 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6848421 /data/cephfs/punim0599/Jesse/emm75/fst/SRR6848521 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7706887 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7707244 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7707338 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7707523 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7707629 /data/cephfs/punim0599/Jesse/emm75/fst/SRR7707681 
+snp-sites -b -c -o ST49core
+
+done
