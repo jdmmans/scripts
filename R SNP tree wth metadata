@@ -19,7 +19,8 @@ genotype <- arrange(genotype, factor(Isolate, levels = cord1))
 genotype <- subset(genotype, select= c(Continent))
 
 # cutting off metadata
-genotype<- head(genotype,331)
+len<- length(tree$tip.label)
+genotype<- head(genotype, len)
 genotype <- data.frame(genotype)
 rownames(genotype) <- tree$tip.label
 
