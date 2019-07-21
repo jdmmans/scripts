@@ -46,5 +46,3 @@ cd /data/cephfs/punim0599/Jesse/emm75/snpanalysis
 run_gubbins.py /data/cephfs/punim0599/Jesse/emm75/snpanalysis/clean2.full.aln
 
 done
-
-done
