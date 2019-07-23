@@ -43,24 +43,13 @@ module load parallel/20170206-intel-2017.u2
 module load PRANK/170427-intel-2017.u2
 module load MAFFT/7.397-spartan_intel-2017.u2-with-extensions
 module load FastTree/2.1.10-spartan_intel-2017.u2
-module load MCL/14.137-spartan_intel-2017.u2
-module load Kraken/1.0-spartan_intel-2017.u2-Perl-5.26.0
+module load MCL/14.137-intel-2016.u3
 module load Roary/3.12.0-spartan_intel-2017.u2-Perl-5.26.0
-
-cd /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka
-ls -R | while read line; do
-  if [[ "$line" == *".gff"* ]] ; then
-    line=${line:0:-4}
-fi
-
-#hacking in reads to one place since Roary can't move stuff
-# needs prokka output first, otherwise nada
-mkdir /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/ggfs/
-cp /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/${line}/${line}.gff /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/ggfs/
+module load MCL/14.137-spartan_intel-2017.u2
 
 #variable shortening
-out='/data/cephfs/punim0599/Jesse/emm75/M75_jesse/Roary'
+out='/data/cephfs/punim0599/Jesse/emm75/roary'
 
 #roary
-roary -output_dir $out /data/cephfs/punim0599/Jesse/emm75/M75_jesse/prokka/ggfs/*.gff
+roary -output_dir $out -p 8 /data/cephfs/punim0599/Jesse/emm75/prokka/*/*.gff
 done
