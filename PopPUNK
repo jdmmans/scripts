@@ -1,7 +1,4 @@
 #!/bin/bash
-# Created by the University of Melbourne job script generator for SLURM
-# Tue Apr 02 2019 10:31:59 GMT+1100 (Australian Eastern Daylight Time)
-
 # Partition for the job:
 #SBATCH --partition=cloud,physical
 
@@ -16,7 +13,7 @@
 
 # Maximum number of tasks/CPU cores used by the job:
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
 
 # Use this email address:
 #SBATCH --mail-user=jmmans@student.unimelb.edu.au
@@ -41,11 +38,12 @@ module load networkx/2.2-intel-2017.u2-Python-3.6.4
 module load numba/0.36.2-intel-2017.u2-Python-3.6.4
 module load scikit-learn/0.20.0-intel-2017.u2-Python-3.6.4
 module load sharedmem/0.3.5-intel-2017.u2-Python-3.6.4
+module load GCC
 
 # variables used 
-out="/data/cephfs/punim0599/Jesse/emm75/GWAS/pyseer.assoc"
+out="/data/cephfs/punim0599/Jesse/emm75/Poppunk"
+cd $out
 
-# pyseer
-[[ -d "$out" ]] ||  pyseer --phenotypes pres_abs.csv --kmers kmers.gz --distances mashoutput.tsv --min-af 0.01 --max-af 0.99 --cpu 4 --filter-pvalue 1E-8 > $out
-
+# popPUNK
+poppunk --easy-run --r-files reference_list.txt --output poppunk_db
 done
