@@ -39,7 +39,7 @@ module load hdbscan/0.8.18-intel-2017.u2-Python-3.6.4
 module load matplotlib/2.1.2-intel-2017.u2-Python-3.6.4
 module load networkx/2.2-intel-2017.u2-Python-3.6.4
 module load numba/0.36.2-intel-2017.u2-Python-3.6.4
-module load cikit-learn/0.20.0-intel-2017.u2-Python-3.6.4
+module load scikit-learn/0.20.0-intel-2017.u2-Python-3.6.4
 module load sharedmem/0.3.5-intel-2017.u2-Python-3.6.4
 
 # variables used 
