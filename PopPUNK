@@ -28,8 +28,6 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 # needed modules
-module load Mash/2.1-spartan_intel-2017.u2
-module load PopPUNK/1.1.3-intel-2017.u2-Python-3.6.4
 module load Python/3.5.2-GCC-6.2.0
 module load pandas/0.18.1-intel-2016.u3-Python-3.5.2
 module load DendroPy/4.1.0-intel-2017.u2-Python-3.6.4
@@ -40,7 +38,9 @@ module load numba/0.36.2-intel-2017.u2-Python-3.6.4
 module load scikit-learn/0.20.0-intel-2017.u2-Python-3.6.4
 module load sharedmem/0.3.5-intel-2017.u2-Python-3.6.4
 module load GCC/6.2.0
-zlib/1.2.11
+module load zlib/1.2.11
+module load Mash/2.1-spartan_intel-2017.u2
+module load PopPUNK/1.1.3-intel-2017.u2-Python-3.6.4
 
 # variables used 
 out="/data/cephfs/punim0599/Jesse/emm75/Poppunk"
