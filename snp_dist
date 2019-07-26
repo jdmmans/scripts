@@ -33,9 +33,7 @@ fi
 #mods
 module load snp-dists/0.6.3-spartan_intel-2017.u2
 
-cd /data/cephfs/punim0599/Jesse/emm75/test
-
 # work
-snp-dists /data/cephfs/punim0599/Jesse/emm75/snpanalysis/clean.full/clean2.full.aln > distances.tab
+snp-dists /data/cephfs/punim0599/Jesse/emm75/snpanalysis/clean.full/clean2.full.aln > /data/cephfs/punim0599/Jesse/emm75/test/distances.tab
 
 done
