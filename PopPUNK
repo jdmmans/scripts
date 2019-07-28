@@ -19,7 +19,7 @@
 #SBATCH --mail-user=jmmans@student.unimelb.edu.au
 
 # The maximum running time of the job in days-hours:mins:sec
-#SBATCH --time=0-3:00:00
+#SBATCH --time=0-1:00:00
 
 # check that the script is launched with sbatch
 if [ "x$SLURM_JOB_ID" == "x" ]; then
@@ -28,18 +28,6 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 # needed modules
-module load Python/3.5.2-GCC-6.2.0
-module load pandas/0.18.1-intel-2016.u3-Python-3.5.2
-module load DendroPy/4.1.0-intel-2017.u2-Python-3.6.4
-module load hdbscan/0.8.18-intel-2017.u2-Python-3.6.4
-module load matplotlib/2.1.2-intel-2017.u2-Python-3.6.4
-module load networkx/2.2-intel-2017.u2-Python-3.6.4
-module load numba/0.36.2-intel-2017.u2-Python-3.6.4
-module load scikit-learn/0.20.0-intel-2017.u2-Python-3.6.4
-module load sharedmem/0.3.5-intel-2017.u2-Python-3.6.4
-module load GCC/6.2.0
-module load zlib/1.2.11
-module load Mash/2.1-spartan_intel-2017.u2
 module load PopPUNK/1.1.3-intel-2017.u2-Python-3.6.4
 
 # variables used 
