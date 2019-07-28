@@ -35,5 +35,5 @@ out="/data/cephfs/punim0599/Jesse/emm75/Poppunk"
 cd $out
 
 # popPUNK
-poppunk --easy-run --r-files- --min-k 20 /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output poppunk_db
+poppunk --easy-run --r-files- /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output poppunk_db --min-k 20
 done
