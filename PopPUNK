@@ -34,7 +34,7 @@ module load Python/3.6.4-intel-2017.u2
 module load zlib/1.2.9-intel-2017.u2
 
 # variables used 
-out="/data/cephfs/punim0599/Jesse/emm75/Poppunk"
+out="/data/cephfs/punim0599/Jesse/emm75/GAS_query/"
 cd $out
 
 # popPUNK
