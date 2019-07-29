@@ -28,14 +28,15 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 # needed modules
+module purge
 module load Mash/2.1-spartan_intel-2017.u2
-module load PopPUNK/1.1.3-intel-2017.u2-Python-3.6.4
 module load zlib/1.2.9-intel-2017.u2
+module load PopPUNK/1.1.3-intel-2017.u2-Python-3.6.4
 
 # variables used 
 out="/data/cephfs/punim0599/Jesse/emm75/Poppunk"
 cd $out
 
 # popPUNK
-poppunk --easy-run --r-files /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output poppunk_db --min-k 20
+poppunk --assign-query --ref-db /data/cephfs/punim0599/Jesse/emm75/GAS_query/ --distances ./GAS_query.dists --model-dir GAS_query --q-files /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output GAS_assignment --threads 8
 done
