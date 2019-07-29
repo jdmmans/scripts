@@ -38,5 +38,5 @@ out="/data/cephfs/punim0599/Jesse/emm75/GAS_query/"
 cd $out
 
 # popPUNK
-poppunk --assign-query --ref-db /data/cephfs/punim0599/Jesse/emm75/GAS_query/ --distances ./GAS_query.dists --model-dir GAS_query --q-files /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output GAS_assignment --threads 8
+poppunk --assign-query --ref-db /data/cephfs/punim0599/Jesse/emm75/GAS_query/ --distances GAS_query.dists --model-dir GAS_query --q-files /data/cephfs/punim0599/Jesse/emm75/poppunklist.txt --output GAS_assignment --threads 8
 done
