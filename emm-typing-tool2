@@ -41,6 +41,11 @@ module load emm-typing-tool/Feb012017-GCC-4.9.2
 module load Python/2.7.10-intel-2016.u3
 module load zlib/1.2.9-intel-2017.u2
 
-emm_typing.py -m /data/cephfs/punim0599/Jesse/emm75/test/ -i /data/cephfs/punim0599/Jesse/emm75/snippy/input/ -o /data/cephfs/punim0599/Jesse/emm75/emm
+cd /data/cephfs/punim0599/Jesse/emm75/reads
+ls | while read line; do
+if [[ "$line" == *"_1"* ]]; then
+    var1="${line:0:-7}"
+
+emm_typing.py --profile-directory /data/cephfs/punim0599/Jesse/emm75/test/ --fastq_1 ${line} --fastq_2 ${var1)_2.fastq.gz --output-directory /data/cephfs/punim0599/Jesse/emm75/emm
 
 done
