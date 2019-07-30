@@ -6,7 +6,7 @@
 #SBATCH --partition=physical
 
 # Array setup
-#SBATCH --array=1-8 
+#SBATCH --array=1-8
 
 # Multithreaded (SMP) job: must run on one node and the cloud partition
 #SBATCH --nodes=1
@@ -30,7 +30,8 @@
 # needed modules
 module load seqtk/1.2-r94-intel-2016.u3
 
-ls /data/cephfs/punim0599/Jesse/emm75/contigs | while read line; do
+cd /data/cephfs/punim0599/Jesse/emm75/contigs
+ls | while read line; do
 if [[ "$line" == *".fna"* ]]; then
     var2="${line:0:-4}"
 else
@@ -38,6 +39,6 @@ else
 echo $var2
 fi
 #work
-seqtk seq -a ${line} > {var2}.fq.gz
+seqtk seq -a ${line} > /data/cephfs/punim0599/Jesse/emm75/reads/${var2}.fq.gz
 
 done
