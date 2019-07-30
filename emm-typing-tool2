@@ -46,6 +46,6 @@ ls | while read line; do
 if [[ "$line" == *"_1"* ]]; then
     var1="${line:0:-7}"
 
-emm_typing.py --profile-directory /data/cephfs/punim0599/Jesse/emm75/test/ --fastq_1 ${line} --fastq_2 ${var1}_2.fastq.gz --output-directory /data/cephfs/punim0599/Jesse/emm75/emm
-
+emm_typing.py --profile_file_directory /data/cephfs/punim0599/Jesse/emm75/test/ --fastq_1 ${line} --fastq_2 ${var1}2.fq.gz --output_directory /data/cephfs/punim0599/Jesse/emm75/emm
+fi
 done
