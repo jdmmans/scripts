@@ -1,0 +1,21 @@
+module load Python/2.7.9-GCC-4.9.2
+module load Miniconda2/4.3.21
+
+### inital run only ###
+config --add channels defaults
+config --add channels bioconda
+config --add channels conda-forge
+conda create <package_name> -n <enivronment_name>
+
+### always ###
+
+# chaning to that environment
+source activate <environment_name>
+
+#commands
+###
+
+#exiting 
+source deactivate
+
+done
