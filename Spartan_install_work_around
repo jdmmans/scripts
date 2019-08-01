@@ -16,6 +16,6 @@ source activate <environment_name>
 ###
 
 #exiting 
-source deactivate
+source deactivate <environment_name>
 
 done
