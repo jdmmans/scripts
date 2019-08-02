@@ -33,7 +33,7 @@ fi
 
 #prepwork
 source activate pbh5tools
-cd /data/cephfs/punim0599/Jesse/contigs
+cd /data/cephfs/punim0599/Jesse/emm75/fastqs
 
 #work
 bash5tools.py m160625_013431_00127_c101020712550000001823228410211691_s1_p0.bas.h5 --outFilePref testERR1599917 --outType fasta --minLength 100
