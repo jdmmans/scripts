@@ -31,6 +31,6 @@ module load Miniconda3
 source activate mlst_check
 
 #work 
-get_emm_type /data/cephfs/punim0599/Jesse/emm75/contigs/*
+get_emm_sequence_type /data/cephfs/punim0599/Jesse/emm75/contigs/*
 
 done
