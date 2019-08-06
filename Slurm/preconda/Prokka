@@ -54,6 +54,6 @@ out='/data/cephfs/punim0599/Jesse/emm75/prokka'
 
 #prokka called, will run on any fasta only run on whole genomes not contigs
 # will be really weird if mapped contigs from snippy or such are used
-prokka --prefix ${line1} --rfam --outdir $out/${line1} /data/cephfs/punim0599/Jesse/emm75/contigs/${line}
+prokka --prefix ${line1} --outdir $out/${line1} /data/cephfs/punim0599/Jesse/emm75/contigs/${line} --addgenes --locustag
 
 done
