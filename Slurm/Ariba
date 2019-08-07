@@ -57,14 +57,12 @@ ls | while read line; do
 fi
 
 # variables used 
+ariba-dr="/home/jmmans/.conda/envs/3.7python/lib/out.ncbi.prepareref"
 out="/data/cephfs/punim0599/Jesse/emm75/ariba/${var1}"
 read1="/data/cephfs/punim0599/Jesse/emm75/fastqs/${line}"
 read2="/data/cephfs/punim0599/Jesse/emm75/fastqs/${var2}"
 
-# change drive 
-cd $out
-
-#work
-ariba run out.ncbi.prepareref ${read1} ${read2} out.run
+#work - #drive ariba was "ariba getref ncbi out.ncbi" in - # read1 - # read 2 # outdrive
+ariba run ${ariba-dr} ${read1} ${read2} out.run ${out}
 
 done
