@@ -28,7 +28,7 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 # dependencies
-source activate abbricate
+source activate abricate
 
 # drives
 mkdir /data/cephfs/punim0599/Jesse/emm75/abricate
