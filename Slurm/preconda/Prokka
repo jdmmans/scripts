@@ -35,11 +35,8 @@ fi
 wt=$((${SLURM_ARRAY_TASK_ID} * 15))
 sleep $wt
 
-#modules
-module load Barrnap/0.6-intel-2016.u3
-module load Prokka/1.13-intel-2016.u3-BioPerl-1.6.924
-module load Java/9.0.4
-module load BLAST+/2.7.1-GCC-6.2.0-Python-3.5.2
+#dependencies
+source activate prokka
 
 # like a for loop but better
 cd /data/cephfs/punim0599/Jesse/emm75/contigs
@@ -49,11 +46,11 @@ line1=${line:0:-3}
 fi
 
 #variable shortening
-mkdir /data/cephfs/punim0599/Jesse/emm75/prokka
 out='/data/cephfs/punim0599/Jesse/emm75/prokka'
+files='/data/cephfs/punim0599/Jesse/emm75/contigs/${line}'
 
 #prokka called, will run on any fasta only run on whole genomes not contigs
 # will be really weird if mapped contigs from snippy or such are used
-prokka --prefix ${line1} --outdir $out/${line1} /data/cephfs/punim0599/Jesse/emm75/contigs/${line} --addgenes --locustag
+prokka --prefix ${line1} --outdir $out/${line1} ${files} --addgenes --locustag --genus Streptococcus --usegenus --force
 
 done
