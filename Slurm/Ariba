@@ -58,7 +58,7 @@ ls | while read line; do
 fi
 
 # variables used 
-ariba-dr="/home/jmmans/.conda/envs/3.7python/lib/out/out.ncbi.prepareref"
+ariba-dr="/data/cephfs/punim0599/Jesse/emm75/ariba/out.ncbi.prepareref"
 out="/data/cephfs/punim0599/Jesse/emm75/ariba/${var1}"
 read1="/data/cephfs/punim0599/Jesse/emm75/fastqs/${line}"
 read2="/data/cephfs/punim0599/Jesse/emm75/fastqs/${var2}"
