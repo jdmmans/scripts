@@ -26,7 +26,6 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
 fi
 
 # dependencies
-Module load Miniconda3
 source activate roary
 
 # work
