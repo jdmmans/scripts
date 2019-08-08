@@ -38,6 +38,7 @@ wt=$((${SLURM_ARRAY_TASK_ID} * 10))
 sleep $wt
 
 # Dependency soup
+module load Miniconda3
 conda activate 3.7Python
 module load Bowtie2/2.3.4.3-intel-2018.u4
 module load CD-HIT/4.6.8-spartan_intel-2017.u2
