@@ -9,7 +9,7 @@
 #SBATCH --array=1-8
 
 # The name of the job:
-#SBATCH --job-name="Shovill"
+#SBATCH --job-name="Ariba"
 
 # The project ID which this job should run under:
 #SBATCH --account="punim0599"
