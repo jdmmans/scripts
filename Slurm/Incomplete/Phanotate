@@ -1,0 +1,4 @@
+# work
+/home/jmmans/PHANOTATE./phanotate.py data/cephfs/punim0599/Jesse/emm75/contigs/* > data/cephfs/punim0599/Jesse/emm75/phage.txt
+
+done
