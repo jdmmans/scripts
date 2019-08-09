@@ -56,6 +56,6 @@ read1="/data/cephfs/punim0599/Jesse/emm75/fastqs/${line}"
 read2="/data/cephfs/punim0599/Jesse/emm75/fastqs/${var2}"
 
 #work - #drive ariba was "ariba getref ncbi out.ncbi" in - # read1 - # read 2 # outdrive
-ariba run ${ariba-dr} ${read1} ${read2} out.run ${out}
+ariba run ${ariba-dr} ${read1} ${read2} ${out}
 
 done
