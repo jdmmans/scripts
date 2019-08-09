@@ -30,20 +30,12 @@ if [ "x$SLURM_JOB_ID" == "x" ]; then
    exit 1
 fi
 
-# needed modules
-module load shovill/1.0.4-spartan_intel-2017.u2
-
 # delay - a decent delay
 wt=$((${SLURM_ARRAY_TASK_ID} * 10))
 sleep $wt
 
 # Dependency soup
-module load Miniconda3
-conda activate 3.7Python
-module load Bowtie2/2.3.4.3-intel-2018.u4
-module load CD-HIT/4.6.8-spartan_intel-2017.u2
-module load MUMmer/3.23-intel-2016.u3
-module load Python/3.7.1-GCC-6.2.0
+conda activate ariba
 
 # delay - a decent delay
 wt=$((${SLURM_ARRAY_TASK_ID} * 10))
