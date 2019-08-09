@@ -26,6 +26,6 @@ cd /data/cephfs/punim0599/Jesse/emm75/contigs
 ls | while read line; do
 
 # work
-/home/jmmans/phastaf/bin/phastaf --outdir/data/cephfs/punim0599/Jesse/emm75/phastaf/${line:0:-3} ${line} --force
+/home/jmmans/phastaf/bin/phastaf --outdir /data/cephfs/punim0599/Jesse/emm75/phastaf/${line:0:-3} ${line} --force
 
 done
