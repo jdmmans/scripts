@@ -1,0 +1,12 @@
+# read in editted compiled phage locations from phastaf, where the different parts are marked with fasta-, -fasta, ect
+cat edit_phage.tab | while read line; do
+
+# annoying grep to get all variables from a single line
+fas=$(echo "$line" | grep -o -P '(?<=fasta-).*(?=-fasta)')
+contig=$(echo "$line" | grep -o -P '(?<=contig-).*(?=-contig)')
+start=$(echo "$line" | grep -o -P '(?<=first-).*(?=-first)')
+end=$(echo "$line" | grep -o -P '(?<=last-).*(?=-last)')
+
+# grabbing the phage region
+phage=$(grep -E -o "${contig}.{${start},${end}}" ${fas}.fa)
+echo "${fas}" "${contig}" "${start}" "${phage"
