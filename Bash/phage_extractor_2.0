@@ -1,5 +1,5 @@
 # read in editted compiled phage locations from phastaf, where the different parts are marked with fasta-, -fasta, ect
-cat edit_phage.txt | while read line; do
+cat /data/cephfs/punim0599/Jesse/emm75/edit_phage.txt | while read line; do
 
 # annoying grep to get all variables from a single line
 fas=$(echo "$line" | grep -o -P '(?<=fasta-).*(?=-fasta)')
@@ -7,14 +7,23 @@ contig=$(echo "$line" | grep -o -P '(?<=contig-).*(?=-contig)')
 start=$(echo "$line" | grep -o -P '(?<=first-).*(?=-first)')
 end=$(echo "$line" | grep -o -P '(?<=last-).*(?=-last)')
 
-# editting start to reflect header
+#change start / end to reflect starting from 1 not 0 as in phastaf
+start=$((${start} + 1))
+end=$((${end} + 1))
 
 #variable setting 
 dest="/data/cephfs/punim0599/Jesse/emm75/phagecontent/${fas},${contig},${start}.fa"
 tempor="/data/cephfs/punim0599/Jesse/emm75/phagecontent/temp.txt"
 
-# removing header, obtain the phage region, save the excised portion 
+# remove header largely useful for genebank assemblies, cut all contigs for shovill assemblies 
+# obtain the phage region, save the excised portion 
 tail -n +2 "/data/cephfs/punim0599/Jesse/emm75/contigs/${fas}.fa" > ${tempor}
-tr -d '\n' < ${tempor} | cut -b${start}-${end} > $dest
+sed '/>contig/d' ${tempor} > ${tempor}
+tr -d '\n' < ${tempor} | cut -b${start}-${end} > ${dest}
+
+# visualise work to viewer
+echo "${dest}"
+# cleanup
+rm ${tempor}
 
 done
