@@ -2,7 +2,7 @@
 cat /data/cephfs/punim0599/Jesse/emm75/edit_phage.txt | while read line; do
 
 # ignore the ERS for now as it is 'special'
-if [[ "$line" == *".fa"* ]]; then
+if [[ "$line" == *"RR"* ]]; then
 
 # annoying grep to get all variables from a single line
 fas=$(echo "$line" | grep -o -P '(?<=fasta-).*(?=-fasta)')
@@ -36,7 +36,7 @@ rm ${tempor}
 
 # ERS / fna stuff
 
-if [[ "$line" == *".fna"* ]]; then
+if [[ "$line" == *"ERS"* ]]; then
 # annoying grep to get all variables from a single line
 fas=$(echo "$line" | grep -o -P '(?<=fasta-).*(?=-fasta)')
 contig=$(echo "$line" | grep -o -P '(?<=contig-).*(?=-contig)')
