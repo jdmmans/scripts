@@ -67,4 +67,5 @@ echo "${dest}"
 # cleanup
 rm ${tempor}
 
+fi
 done
