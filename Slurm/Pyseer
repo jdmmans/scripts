@@ -24,10 +24,16 @@ fi
 Module load Miniconda3
 source activate pyseer
 
-# work by pyseer
+# vairables
 ## traits.tsv is a binary version of phenotypes present (i.e emm75 or AMR) to allow comparison with scoary outputs
 ## kmers is the output file produced by unitig-counter
 ## mash.tsv is a simple matrix of genetic distances produced by mash 
-pyseer --phenotypes /data/cephfs/punim0599/Jesse/emm75/pyseer/phenotypes/traits.tsv --kmers /data/cephfs/punim0599/Jesse/emm75/pyseer/kmers/unitigs.txt --distances /data/cephfs/punim0599/Jesse/emm75/pyseer/MASH/mash.tsv --min-af 0.01 --max-af 0.99 --cpu 12 --filter-pvalue 1E-8 > /data/cephfs/punim0599/Jesse/emm75/pyseer/pyseer.assoc
+out="/data/cephfs/punim0599/Jesse/emm75/pyseer/pyseer.assoc"
+phen="/data/cephfs/punim0599/Jesse/emm75/pyseer/phenotypes/traits.tsv"
+uni="/data/cephfs/punim0599/Jesse/emm75/pyseer/kmers/unitigs.txt" 
+msh="/data/cephfs/punim0599/Jesse/emm75/pyseer/MASH/mash.tsv"
+
+# work by pyseer
+[[ -d "$out" ]] || pyseer --phenotypes ${phen} --kmers ${uni} --distances ${msh} --min-af 0.01 --max-af 0.99 --cpu 12 --filter-pvalue 1E-8 > $out
 
 done
