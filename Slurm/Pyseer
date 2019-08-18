@@ -34,6 +34,6 @@ uni="/data/cephfs/punim0599/Jesse/emm75/pyseer/kmers/unitigs.txt"
 msh="/data/cephfs/punim0599/Jesse/emm75/pyseer/MASH/mash.tsv"
 
 # work by pyseer
-[[ -d "$out" ]] || pyseer --phenotypes ${phen} --kmers ${uni} --distances ${msh} --min-af 0.01 --max-af 0.99 --cpu 12 --filter-pvalue 1E-8 > $out
+[[ -d "$out" ]] || pyseer --phenotypes ${phen} --kmers ${uni} --uncompressed --distances ${msh} --min-af 0.01 --max-af 0.99 --cpu 12 --filter-pvalue 1E-8 > $out
 
 done
