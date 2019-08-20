@@ -1,0 +1,84 @@
+
+The following have been reloaded with a version change:
+  1) GCC/4.9.2 => GCC/4.9.2-binutils-2.25
+  2) binutils/2.25 => binutils/2.25-GCC-4.9.2-binutils-2.25
+
+
+The following have been reloaded with a version change:
+  1) GCC/4.9.2-binutils-2.25 => GCC/8.2.0
+  2) binutils/2.25-GCC-4.9.2-binutils-2.25 => binutils/2.30-GCCcore-8.2.0
+
+rm: cannot remove ‘/data/cephfs/punim0599/Jesse/emm75/roary/ST49’: No such file or directory
+Use of uninitialized value in require at /home/jmmans/.conda/envs/roary/lib/site_perl/5.26.2/x86_64-linux-thread-multi/Encode.pm line 61.
+2019/08/20 13:00:22 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/ERR1735300.gff 
+2019/08/20 13:00:22 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/ERR485807.gff 
+2019/08/20 13:00:22 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/ERR485820.gff 
+2019/08/20 13:00:23 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR1105928.gff 
+2019/08/20 13:00:23 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR1105976.gff 
+2019/08/20 13:00:23 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853417.gff 
+2019/08/20 13:00:24 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853418.gff 
+2019/08/20 13:00:24 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853420.gff 
+2019/08/20 13:00:24 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853810.gff 
+2019/08/20 13:00:25 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853816.gff 
+2019/08/20 13:00:25 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5853875.gff 
+2019/08/20 13:00:25 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5854009.gff 
+2019/08/20 13:00:26 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5854107.gff 
+2019/08/20 13:00:26 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5854173.gff 
+2019/08/20 13:00:26 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5858401.gff 
+2019/08/20 13:00:27 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5858578.gff 
+2019/08/20 13:00:27 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5858638.gff 
+2019/08/20 13:00:27 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5858672.gff 
+2019/08/20 13:00:28 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR5858740.gff 
+2019/08/20 13:00:28 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6834822.gff 
+2019/08/20 13:00:28 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6834865.gff 
+2019/08/20 13:00:29 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6834926.gff 
+2019/08/20 13:00:29 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6834952.gff 
+2019/08/20 13:00:29 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6834999.gff 
+2019/08/20 13:00:30 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835028.gff 
+2019/08/20 13:00:30 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835084.gff 
+2019/08/20 13:00:30 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835087.gff 
+2019/08/20 13:00:31 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835088.gff 
+2019/08/20 13:00:31 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835140.gff 
+2019/08/20 13:00:31 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835171.gff 
+2019/08/20 13:00:32 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835313.gff 
+2019/08/20 13:00:32 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835324.gff 
+2019/08/20 13:00:32 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835495.gff 
+2019/08/20 13:00:33 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835543.gff 
+2019/08/20 13:00:33 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835688.gff 
+2019/08/20 13:00:33 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835769.gff 
+2019/08/20 13:00:34 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6835780.gff 
+2019/08/20 13:00:34 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6839718.gff 
+2019/08/20 13:00:34 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6839905.gff 
+2019/08/20 13:00:35 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6839932.gff 
+2019/08/20 13:00:35 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6840015.gff 
+2019/08/20 13:00:35 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6840060.gff 
+2019/08/20 13:00:36 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6840603.gff 
+2019/08/20 13:00:36 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6840630.gff 
+2019/08/20 13:00:36 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844601.gff 
+2019/08/20 13:00:37 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844608.gff 
+2019/08/20 13:00:37 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844624.gff 
+2019/08/20 13:00:37 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844671.gff 
+2019/08/20 13:00:38 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844800.gff 
+2019/08/20 13:00:38 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844828.gff 
+2019/08/20 13:00:39 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6844840.gff 
+2019/08/20 13:00:39 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6848421.gff 
+2019/08/20 13:00:39 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6848521.gff 
+2019/08/20 13:00:40 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6848698.gff 
+2019/08/20 13:00:40 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR6848725.gff 
+2019/08/20 13:00:40 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7706887.gff 
+2019/08/20 13:00:41 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7707244.gff 
+2019/08/20 13:00:41 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7707338.gff 
+2019/08/20 13:00:41 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7707523.gff 
+2019/08/20 13:00:42 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7707629.gff 
+2019/08/20 13:00:42 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR7707681.gff 
+2019/08/20 13:00:42 Input file contains duplicate gene IDs, attempting to fix by adding a unique suffix, new GFF in the fixed_input_files directory: /data/cephfs/punim0599/Jesse/emm75/ST49/gff/SRR8194159.gff 
+
+Please cite Roary if you use any of the results it produces:
+    Andrew J. Page, Carla A. Cummins, Martin Hunt, Vanessa K. Wong, Sandra Reuter, Matthew T. G. Holden, Maria Fookes, Daniel Falush, Jacqueline A. Keane, Julian Parkhill,
+	"Roary: Rapid large-scale prokaryote pan genome analysis", Bioinformatics, 2015 Nov 15;31(22):3691-3693
+    doi: http://doi.org/10.1093/bioinformatics/btv421
+	Pubmed: 26198102
+
+Use of uninitialized value in require at /home/jmmans/.conda/envs/roary/lib/site_perl/5.26.2/x86_64-linux-thread-multi/Encode.pm line 61.
+/var/spool/slurm/job11015505/slurm_script: line 48: syntax error near unexpected token `done'
+/var/spool/slurm/job11015505/slurm_script: line 48: `done'
