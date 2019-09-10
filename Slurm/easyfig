@@ -1,4 +1,5 @@
 module load BLAST+
-module load Python/2.7.9-GCC-4.9.2
+module load Python/2.7.9-intel-2017.u2
+module load GCC/6.2.0
 ## one of each popPUNK cluster
 python Easyfig.py -o ./figure.svg -svg ../contigs/{ERR1732839.fa,ERR228677.fa,ERR028583.fa,ERR2650107.fa,ERR228488.fa,ERR111860.fa,ERR485807.fa,ERR172141.fa,ERR1359529.fa}
