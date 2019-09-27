@@ -41,7 +41,7 @@ source activate prokka
 # like a for loop but better
 cd /data/cephfs/punim0599/Jesse/emm75/contigs
 ls | while read line; do
-        if [[ ${line}==*".fa"* ]]; then
+        if [[ ${line} == *".fa"* ]]; then
 line1=${line:0:-3}
 fi
 
